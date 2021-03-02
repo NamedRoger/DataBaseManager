@@ -21,14 +21,14 @@ namespace DataBaseManager
             {"Decimal",DbType.Decimal },
             {"DateTime",DbType.DateTime },
             {"Boolean",DbType.Boolean },
-            {"String",DbType.String }
+            {"String",DbType.String },
+            {"Byte",DbType.Byte}
         };
 
         public IEnumerable<SqlParameter> GetSqlParameters(object entity)
         {
             var properties = entity.GetType().GetProperties();
             List<SqlParameter> sqlParameters = new List<SqlParameter>();
-
             foreach (var property in properties)
             {
                 sqlParameters.Add(CreateSqlParameter(entity, property));
